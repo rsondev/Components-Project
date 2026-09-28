@@ -1,0 +1,55 @@
+# Dev Portfolio
+
+A small multi-page portfolio built with React, React Router, and Vite.
+
+## Run it
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (usually http://localhost:5173).
+
+To build for production:
+
+```bash
+npm run build
+```
+
+## Structure
+
+```
+src/
+  components/       Reusable UI pieces, used across pages
+    Button.jsx        primary/ghost button, renders <button> or <a>
+    Sidebar.jsx        left nav (desktop) + top nav (mobile)
+    ProjectCard.jsx    one project entry
+    DataStats.jsx      SkillBars + MetricGrid (the "Data" widgets)
+    ContactForm.jsx    validated contact form with local state
+    Footer.jsx
+
+  pages/            One file per route
+    Home.jsx           "/"
+    Projects.jsx       "/projects"
+    Data.jsx           "/data"
+    Contact.jsx        "/contact"
+
+  data/             Plain JS data, imported by pages
+    projects.js
+    skills.js
+
+  App.jsx           Routes + layout shell
+  main.jsx          Entry point, wraps App in <BrowserRouter>
+  index.css         Design tokens + all styling (no CSS framework)
+```
+
+## Customizing
+
+- Swap the name/role in `src/components/Sidebar.jsx`.
+- Edit `src/data/projects.js` and `src/data/skills.js` with your own content.
+- The contact form currently simulates a submit (`ContactForm.jsx`). Wire
+  the `handleSubmit` function to your backend or a service like
+  Formspree/Resend to actually send email.
+- Colors, fonts, and spacing are all defined as CSS variables at the top
+  of `src/index.css`.
